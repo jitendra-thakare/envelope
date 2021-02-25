@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+    background-image: url(img/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.envelope {
+    margin-top: 20%;
+    margin-left: 20%;
+    text-align: center;
+    background-color: transparent;
+    width: 707.058px;
+    height: 405.417px;
+    perspective: 1000px; 
+}
+
+.envelope-open-frontside {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.envelope:hover .envelope-open-frontside {
+  transform: rotateY(180deg);
+}
+
+.envelope-back:hover .openingflap{
+  z-index: 5;
+  transform: rotateX(0deg);
+  border-top: black solid 1px;
+  
+}
+
+
+.opener:hover .openingflap,.letter{
+    transform: rotateX(180deg);
+    transform-origin: top;
+    
+}
+
+
+
+.envelope-front, .envelope-back {
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.envelope-front {
+    color: black;
+}
+
+.envelope-back {
+  transform: rotateY(180deg);
+}
+.openingflap{
+    position: fixed;
+    left: 0%;
+    top: 0px;
+    transform: rotateX(0deg); 
+    transition-duration: 5s;
+    transform-origin: top;
+    z-index:5;
+} 
+.open-frontside{
+    position: absolute;
+    left: 0%;
+    top: 0px;
+    z-index: 2;
+}
+.letter{
+    position: relative;
+    z-index: 0;
+    left: 0%;
+    top: -5px;
+    width: 700px;    
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    height: 400px;
+    overflow: hidden;
+}
+
+</style>
+</head>
+<body>
+    <div class="envelope">
+        
+        <div class="envelope-open-frontside">
+          <div class="envelope-front">
+            <img src="img/envelope/envelope background.svg">
+          </div>
+          <div class="envelope-back">
+            <img src="img/envelope/full envelope.svg">
+            <div class="opener">
+                <img class="openingflap" src="img/envelope/outerflap.svg">
+            </div>
+            <img class="open-frontside"src="img/envelope/envelope front.svg" alt="">
+            <img class="letter"src="img/envelope/envelope background.svg" alt="">
+          </div>
+        </div>
+      </div>
+</body>
+</html>
