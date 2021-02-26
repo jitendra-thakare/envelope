@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
 body{
-    background-image: url(bg.jpg);
+    background-image: url(img/bg.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -16,7 +16,6 @@ body{
     margin-top: 20%;
     margin-left: 20%;
     text-align: center;
-    background-color: transparent;
     width: 707.058px;
     height: 405.417px;
     perspective: 1000px; 
@@ -38,15 +37,16 @@ body{
   z-index: 5;
   transform: rotateX(0deg);
   border-top: black solid 1px;
-  
 }
 
 
-.opener:hover .openingflap,.letter{
+.opener:hover .openingflap{
     transform: rotateX(180deg);
     transform-origin: top;
+    position:absolute;
     
 }
+
 
 
 
@@ -67,10 +67,11 @@ body{
 }
 .openingflap{
     position: fixed;
+    
     left: 0%;
     top: 0px;
     transform: rotateX(0deg); 
-    transition-duration: 5s;
+    transition-duration: 0s;
     transform-origin: top;
     z-index:5;
 } 
@@ -80,36 +81,68 @@ body{
     top: 0px;
     z-index: 2;
 }
-.letter{
-    position: relative;
-    z-index: 0;
-    left: 0%;
-    top: -5px;
-    width: 700px;    
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    height: 400px;
-    overflow: hidden;
-}
 
+
+.o{
+  height: 100px;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  left: 2%;
+  top: 0%;
+}
+.letter{
+  
+  transition: ease-in 3s;
+  z-index: 2;
+  position: absolute;
+  left: 0%;
+  top: 0px;
+  visibility: 0;
+
+}
+.o:hover .a{
+  border: black 10px solid;
+}
 </style>
 </head>
 <body>
     <div class="envelope">
-        
         <div class="envelope-open-frontside">
           <div class="envelope-front">
-            <img src="envelope background.svg">
+            <img src="img/envelope/envelope background.svg">
           </div>
           <div class="envelope-back">
-            <img src="full envelope.svg">
+            
+            <img src="img/envelope/full envelope.svg">
             <div class="opener">
-                <img class="openingflap" src="outerflap.svg">
+
+                <img id="c"class="openingflap" src="img/envelope/outerflap.svg">
+                <img onmouseover="myFunction()" onmouseout="myfunction2()" src="img/envelope/envelope background.svg" class="o"alt="">
+                <div>
+                  <img id="b"src="img/envelope/letter.svg" alt="" class="letter">
+                </div>
+            
+            <img class="open-frontside"src="img/envelope/envelope front.svg" alt="">
             </div>
-            <img class="open-frontside"src="envelope front.svg" alt="">
-            <img class="letter"src="envelope background.svg" alt="">
           </div>
         </div>
       </div>
+      <div>
+       
+      </div>
+      <script>
+        function myFunction() {
+          document.getElementById("b").style.top="-300px";
+          document.getElementById("c").style.zIndex="-1"
+        }
+        
+        function myfunction2() {
+          document.getElementById("b").style.top="0px";
+          
+        }
+        </script>
+        
 </body>
 </html>
